@@ -6,7 +6,20 @@ const Home = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    getAllEvents().then((res) => setEvents(res.data)).catch(console.error);
+    const token = localStorage.getItem('token'); 
+
+    if (!token) {
+      alert('You are not logged in. Please log in to access events.');
+      return;
+    }
+
+    // Adding token to headers
+    getAllEvents(token)
+      .then((res) => setEvents(res.data))
+      .catch((err) => {
+        console.error(err);
+        alert('Failed to load events');
+      });
   }, []);
 
   return (
@@ -21,7 +34,7 @@ const Home = () => {
             <p><strong>Location:</strong> {event.location}</p>
             {event.image && (
               <img 
-                src={`http://localhost:8000/${event.image}`} 
+                src={event.image} 
                 alt={event.title} 
                 className="event-image"
               />
