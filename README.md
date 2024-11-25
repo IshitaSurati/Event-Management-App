@@ -58,7 +58,8 @@ A simple Event Management System built with React (Frontend) and Node.js with Ex
 ### Deployment
 
 ### Frontend:
-- Deployed on Vercel: Frontend URL
+- Deployed on Vercel: [Frontend URL](https://event-management-app-vyr7.vercel.app/)
+- 
 
 ### Backend:
 - Deployed on Vercel: [Backend URL](https://event-management-app-ashen.vercel.app/)
